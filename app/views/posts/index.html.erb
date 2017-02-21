@@ -1,0 +1,36 @@
+<h1>Posts#index</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
+
+<%if user_signed_in? %>
+    <%=current_user.email%>
+    <%=link_to "로그아웃", destroy_user_session_path, method: :delete %>
+
+<%else%>
+    <%=link_to "로그인", new_user_session_path %>
+<%end%><br>
+<a href="/posts/new">새로운 글쓰기</a>
+<table class="table table-striped">
+  <tr>
+      <th>글번호</th>
+      <th>글제목</th>
+  </tr>
+  <% @posts.each do |x| %>
+      <tr>
+        <td><a href="/posts/<%=x.id%>"><%=x.id%></a></td>
+        <td><a href="/posts/<%=x.id%>"><%=x.title%></a></td>
+      </tr>
+  <%end%>
+</table>
+<p>현재 사용자가 쓴 글들</p>
+<table class="table table-striped">
+  <tr>
+      <th>글번호</th>
+      <th>글제목</th>
+  </tr>
+  <% @current_user_posts.each do |x| %>
+      <tr>
+        <td><a href="/posts/<%=x.id%>"><%=x.id%></a></td>
+        <td><a href="/posts/<%=x.id%>"><%=x.title%></a></td>
+      </tr>
+  <%end%>
+</table>

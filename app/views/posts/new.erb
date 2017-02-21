@@ -1,0 +1,14 @@
+<h1>새로운 게시글을 만들어주세요</h1>
+<%= form_tag '/posts/create' do%>
+
+
+    <%= link_to  '/posts/index' do%>
+     <strong><%= "앵커태그입니다."%></strong>, 
+    <%end%>
+    
+    
+    <label for="title">제목 : </label>
+    <input id="title" name="title" type="text"/><br>
+    <textarea id="content" name="content" placeholder="글내용을 입력해주세요."></textarea><br>
+    <input type="submit"/>
+<%end%>

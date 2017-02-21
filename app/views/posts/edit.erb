@@ -1,0 +1,7 @@
+<h1>게시글을 수정해주세요</h1>
+<%= form_tag "/posts/#{@post.id}", method: :patch do%>
+    <label for="title">제목 : </label>
+    <input id="title" name="title" type="text"/><br>
+    <textarea id="content" name="content" placeholder="글내용을 입력해주세요."></textarea><br>
+    <input type="submit"/>
+<%end%>

@@ -1,0 +1,16 @@
+
+
+
+<div class="container">
+    <div class="jumbotron">
+      <h1><%=@post.title%></h1>
+      <p><%=@post.content%></p>
+      <p><a class="btn btn-primary btn-lg" href="/posts/<%=@post.id%>/edit" role="button">수정하기</a></p>
+      <p><a class="btn btn-primary btn-lg" href="/posts/<%=@post.id%>", data-method="delete" role="button">삭제하기</a></p>
+    </div>
+</div>
+<% if current_user.is_liked?%>
+    <%=link_to "좋아요 취소", posts_like_path(@post),method: "post"%>
+<%else%>
+
+<%end%>
